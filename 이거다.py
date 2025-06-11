@@ -3,7 +3,7 @@ import pandas as pd
 from tqdm import tqdm
 from datetime import datetime
 
-API_KEY = 'AIzaSyDo7MITNIkvYaF3Qcddk0FGW0k2Wfi5Scs'  # 발급받은 API 키 입력
+API_KEY = '비밀이지롱'  # 발급받은 API 키 입력
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 video_items = []
