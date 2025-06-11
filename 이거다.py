@@ -3,13 +3,13 @@ import pandas as pd
 from tqdm import tqdm
 from datetime import datetime
 
-API_KEY = '비밀이지롱'  # 발급받은 API 키 입력
+API_KEY = '비밀이지롱'  # API key
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 video_items = []
 next_page_token = None
 
-# 100개 수집 (50개씩 2회)
+# 200개 수집 (50개씩 4회)
 for _ in range(4):
     response = youtube.videos().list(
         part='snippet,statistics',
@@ -53,4 +53,4 @@ df = pd.DataFrame(data, columns=['순번', '제목', '조회수', '좋아요수'
 now = datetime.now().strftime('%Y-%m-%d_%H%M')
 file_name = f'youtube_trending_{now}.xlsx'
 df.to_excel(file_name, index=False)
-print(f"{file_name} 파일이 생성되었습니다.")
+print(f"{file_name} 파일이 생성")
